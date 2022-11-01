@@ -22,9 +22,9 @@
 
 <body id="content">
 	<div class="results">
-	    <center>
+	    <div style="text-align:center">
 	      <h2 id="name" class="text-uppercase">{{title}}</h2>
-	    </center>
+	    </div>
 	</div>
 	<br>
 
@@ -39,7 +39,7 @@
       <div id="details">
         <br/>
         <h6 id="title" style="color:white;">Main Title: &nbsp;{{title}}</h6>
-        <h6 id="overview" style="color:white;max-width: 85%">Overvire: <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{overview}}</h6>
+        <h6 id="overview" style="color:white;max-width: 85%">Overview: <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{overview}}</h6>
         <h6 id="vote_average" style="color:white;">RATING: &nbsp;{{vote_average}}/10 ({{vote_count}} votes)</h6>
         <h6 id="genres" style="color:white;">GENRE: &nbsp;{{genres}}</h6>
         <h6 id="date" style="color:white;">RELEASE DATE: &nbsp;{{release_date}}</h6>
@@ -49,7 +49,7 @@
     </div>
 </div>
 <br/>
-	
+
 {% for name, details in cast_details.items() if not cast_details.hidden %}
   <div class="modal fade" id="{{details[0]}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -66,7 +66,7 @@
           <div style="margin-left: 20px">
             <p><strong>Birthday:</strong> {{details[2]}} </p>
             <p><strong>Place of Birth:</strong> {{details[3]}} </p>
-            <p> 
+            <p>
               <p><strong>Biography:</strong><p>
               {{details[4]}}
             </p>
@@ -79,13 +79,13 @@
     </div>
   </div>
   {% endfor %}
-  
+
   {% if casts|length > 1 %}
   <div class="movie" style="color: #E8E8E8;">
-    	<center>
+    	<div style="text-align:center">
 		<h3>ACTORS & ACTRESSES</h3>
 		<h5>(Click on the cast to know more)</h5>
-	</center>
+	</div>
   </div>
 
   <div class="movie-content">
@@ -106,7 +106,7 @@
     </div>
 {% endif %}
 
-  <center>
+  <div style="text-align:center">
     {% if reviews %}
     <h2 style="color:white">USER REVIEWS</h2>
      <div class="col-md-12" style="margin: 0 auto; margin-top:25px;">
@@ -117,19 +117,19 @@
                     <th class="text-center" scope="col">Status</th>
                 </tr>
             </thead>
-    
+
             <tbody>
 		      {% for review, status in reviews.items() if not reviews.hidden %}
 		      <tr style="background-color:#e5091485;">
               	  <td>{{review}}</td>
-	              <td><center>
-	                  {{status}} : 
+	              <td><div style="text-align:center">
+	                  {{status}} :
 	                  {% if status =='Good' %}
 	                    &#128515;
 	                  {% else %}
 	                    &#128534;
 	                  {% endif %}
-	                </center>
+	                </div>
 	              </td>
           		</tr>
       			{% endfor %}
@@ -141,13 +141,13 @@
       <h1 style="color:white"> This movie is not released yet. Stay tuned! </h1>
     </div>
     {% endif %}
-  </center>
+  </div>
 
       {% if movie_cards|length > 1 %}
 
 
       <div class="movie" style="color: #E8E8E8;">
-      <center><h3>RECOMMENDED MOVIES FOR YOU</h3><h5>(Click any of the movies to get recommendation)</h5></center>
+      <div style="text-align:center"><h3>RECOMMENDED MOVIES FOR YOU</h3><h5>(Click any of the movies to get recommendation)</h5></div>
     </div>
 
     <div class="movie-content">
@@ -168,10 +168,10 @@
 
     {% endif %}
 
-    
+
     </div>
   </div>
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
